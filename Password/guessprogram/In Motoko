@@ -1,0 +1,64 @@
+import Text "mo:base/Text";
+
+actor Echo {
+
+  type Errortest = {
+
+    #Ok : Text;
+
+    #Err : Text;
+
+  };
+
+ 
+
+let word = "Dfinity";
+
+  
+
+  func password (input : Text) : Errortest {
+
+    if (input == word) {
+
+      return #Ok "Correct Password.. congrats! welcome user";
+
+    } else {
+
+      return #Err "Error!..wrong input Try again user";
+
+    };
+
+  };
+
+
+
+  public query func Enter_password_user(input : Text) : async Text {
+
+
+
+    let Result =  password(input);
+
+
+
+    switch (Result) {
+
+      case (#Ok successword) {
+
+        return successword;
+
+      };
+
+
+
+      case (#Err errorMessage) {
+
+        return  errorMessage;
+
+      };
+
+    };
+
+  };
+
+};
+
